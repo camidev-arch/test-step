@@ -129,18 +129,25 @@
 
 .hero-muscles__features {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px 32px;
+  flex-wrap: nowrap;
+  gap: 12px 20px;
   margin-top: 24px;
   padding-top: 20px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 750px) {
+  .hero-muscles__features {
+    gap: 20px 32px;
+  }
 }
 
 .hero-muscles__feature {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex: 1 1 150px;
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .hero-muscles__feature-icon {
