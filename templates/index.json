@@ -1,0 +1,120 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_muscles": {
+      "type": "hero-muscles",
+      "blocks": {
+        "feature_strength": {
+          "type": "feature",
+          "settings": {
+            "icon_preset": "circlepoint.png",
+            "heading": "Activates Muscles & Builds Strength"
+          }
+        },
+        "feature_recovery": {
+          "type": "feature",
+          "settings": {
+            "icon_preset": "compression-icon.svg.png",
+            "heading": "Boosts Recovery & Circulation"
+          }
+        },
+        "feature_joints": {
+          "type": "feature",
+          "settings": {
+            "icon_preset": "support.png",
+            "heading": "Supports Healthy Joints & Movement"
+          }
+        }
+      },
+      "block_order": [
+        "feature_strength",
+        "feature_recovery",
+        "feature_joints"
+      ],
+      "settings": {
+        "rating_text": "Trusted by 1,000+ happy customers",
+        "heading": "Wake Up The",
+        "heading_emphasis": "Muscles That Matter.",
+        "subheading": "<p>Suji delivers science-backed targeted compression — pain relief, muscle activation, and lasting strength in minutes, right from home.</p>",
+        "primary_button_label": "Try Suji",
+        "secondary_button_label": "How It Works",
+        "guarantee_text": "30-day money back guarantee"
+      }
+    },
+    "backed_by_science": {
+      "type": "backed-by-science",
+      "blocks": {
+        "label_strength": {
+          "type": "group_label",
+          "settings": {
+            "label": "Build lasting strength in just 3 short sessions a week"
+          }
+        },
+        "stat_strength": {
+          "type": "stat",
+          "settings": {
+            "eyebrow": "In a clinical study¹",
+            "number": "2.0x",
+            "description": "muscle strength increase vs traditional low-load training"
+          }
+        },
+        "stat_mass": {
+          "type": "stat",
+          "settings": {
+            "eyebrow": "In a systematic review²",
+            "number": "3.2X",
+            "description": "greater muscle mass gains compared to walking or light training without Targeted Compression/BFR"
+          }
+        },
+        "label_recovery": {
+          "type": "group_label",
+          "settings": {
+            "label": "Clinically shown to speed up recovery"
+          }
+        },
+        "stat_recovery": {
+          "type": "stat",
+          "settings": {
+            "eyebrow": "In a recovery study³",
+            "number": "78%",
+            "description": "faster muscle recovery time post-exercise with Targeted Compression/BFR compared to passive rest"
+          }
+        },
+        "stat_pain": {
+          "type": "stat",
+          "settings": {
+            "eyebrow": "In a clinical trial⁴",
+            "number": "40-50%",
+            "description": "pain reduction reported in individuals with chronic musculoskeletal pain"
+          }
+        }
+      },
+      "block_order": [
+        "label_strength",
+        "stat_strength",
+        "stat_mass",
+        "label_recovery",
+        "stat_recovery",
+        "stat_pain"
+      ],
+      "settings": {
+        "heading": "Backed by Science.",
+        "heading_emphasis": "Proven by Results.",
+        "button_label": "See The Science",
+        "citations": "<p>¹Yasuda et al., 2010 ²Loenneke et al., 2012 ³Takarada et al., 2000 ⁴Hughes et al., 2017</p>"
+      }
+    }
+  },
+  "order": [
+    "hero_muscles",
+    "backed_by_science"
+  ]
+}

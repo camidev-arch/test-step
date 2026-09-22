@@ -1,0 +1,147 @@
+.backed-by-science {
+  background: var(--bg-color, #ffffff);
+  color: var(--text-color, #262d33);
+}
+
+.backed-by-science__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 990px) {
+  .backed-by-science__inner {
+    grid-template-columns: 44% 1fr;
+  }
+}
+
+.backed-by-science__media {
+  background: var(--media-bg, #f3f3f3);
+  aspect-ratio: 630 / 768;
+  padding: 24px;
+}
+
+@media (min-width: 990px) {
+  .backed-by-science__media {
+    aspect-ratio: auto;
+    height: 100%;
+    padding: 40px 0 40px 48px;
+  }
+}
+
+.backed-by-science__image,
+.backed-by-science__image--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.backed-by-science__content {
+  padding: 40px 24px;
+}
+
+@media (min-width: 750px) {
+  .backed-by-science__content {
+    padding: 48px;
+  }
+}
+
+@media (min-width: 990px) {
+  .backed-by-science__content {
+    padding: 64px;
+  }
+}
+
+.backed-by-science__heading {
+  font-size: clamp(24px, 2.6vw, 32px);
+  line-height: 1.2;
+  font-weight: 700;
+  margin: 0 0 28px;
+  color: var(--text-color, #262d33);
+}
+
+.backed-by-science__heading-line {
+  display: block;
+}
+
+.backed-by-science__heading-line--emphasis {
+  font-style: italic;
+}
+
+.backed-by-science__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-color, #262d33);
+  margin: 0 0 8px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(38, 45, 51, 0.15);
+}
+
+.backed-by-science__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px 32px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 560px) {
+  .backed-by-science__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.backed-by-science__stat-eyebrow {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-color, #262d33);
+  margin: 0 0 6px;
+}
+
+.backed-by-science__stat-number {
+  font-size: clamp(36px, 4.4vw, 48px);
+  font-weight: 500;
+  line-height: 1;
+  margin: 0 0 10px;
+  color: var(--text-color, #262d33);
+}
+
+.backed-by-science__stat-description {
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: var(--text-color, #262d33);
+  margin: 0;
+}
+
+.backed-by-science__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--text-color, #262d33);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color, #262d33);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.backed-by-science__btn:hover {
+  background: var(--text-color, #262d33);
+  color: #ffffff;
+}
+
+.backed-by-science__citations {
+  margin-top: 20px;
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--text-color, #262d33);
+  opacity: 0.55;
+}
+
+.backed-by-science__citations p {
+  margin: 0;
+}

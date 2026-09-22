@@ -1,0 +1,287 @@
+{{ 'section-hero-muscles.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .hero-muscles-{{ section.id }} {
+    --accent: {{ section.settings.accent_color }};
+    --heading-color: {{ section.settings.heading_color }};
+    --text-color: {{ section.settings.text_color }};
+    --note-color: {{ section.settings.note_color }};
+    --bg-color: {{ section.settings.background_color }};
+  }
+</style>
+
+<section class="hero-muscles-{{ section.id }} hero-muscles" data-section-id="{{ section.id }}">
+  <div class="hero-muscles__inner">
+    <div class="hero-muscles__content">
+
+      {%- if section.settings.rating_text != blank -%}
+        <div class="hero-muscles__rating">
+          <span class="hero-muscles__stars" aria-hidden="true">
+            {%- for i in (1..5) -%}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .587l3.668 7.431L24 9.168l-6 5.848L19.335 24 12 19.897 4.665 24 6 15.016 0 9.168l8.332-1.15z"/></svg>
+            {%- endfor -%}
+          </span>
+          <span class="hero-muscles__rating-text">{{ section.settings.rating_text }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank or section.settings.heading_emphasis != blank -%}
+        <h1 class="hero-muscles__heading">
+          {%- if section.settings.heading != blank -%}
+            <span class="hero-muscles__heading-line">{{ section.settings.heading }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading_emphasis != blank -%}
+            <span class="hero-muscles__heading-line hero-muscles__heading-line--emphasis">{{ section.settings.heading_emphasis }}</span>
+          {%- endif -%}
+        </h1>
+      {%- endif -%}
+
+      {%- if section.settings.subheading != blank -%}
+        <div class="hero-muscles__subheading">{{ section.settings.subheading }}</div>
+      {%- endif -%}
+
+      <div class="hero-muscles__buttons">
+        {%- if section.settings.primary_button_label != blank -%}
+          <a
+            {% if section.settings.primary_button_link != blank %}href="{{ section.settings.primary_button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+            class="hero-muscles__btn hero-muscles__btn--primary"
+          >
+            {{ section.settings.primary_button_label }}
+          </a>
+        {%- endif -%}
+
+        {%- if section.settings.secondary_button_label != blank -%}
+          <a
+            {% if section.settings.secondary_button_link != blank %}href="{{ section.settings.secondary_button_link }}"{% else %}role="link" aria-disabled="true"{% endif %}
+            class="hero-muscles__btn hero-muscles__btn--secondary"
+          >
+            {{ section.settings.secondary_button_label }}
+          </a>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.guarantee_text != blank -%}
+        <div class="hero-muscles__guarantee">
+          <img src="{{ 'icon-guarantee.png' | asset_url }}" alt="" width="14" height="14" loading="lazy">
+          <span>{{ section.settings.guarantee_text }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="hero-muscles__features">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'feature' -%}
+              <div class="hero-muscles__feature" {{ block.shopify_attributes }}>
+                <span class="hero-muscles__feature-icon">
+                  {%- if block.settings.icon != blank -%}
+                    {{ block.settings.icon | image_url: width: 40 | image_tag: loading: 'lazy', alt: block.settings.heading }}
+                  {%- elsif block.settings.icon_preset != blank -%}
+                    <img src="{{ block.settings.icon_preset | asset_url }}" alt="" width="20" height="20" loading="lazy">
+                  {%- else -%}
+                    {%- case block.settings.icon_style -%}
+                      {%- when 'arrows' -%}
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3 8h15M14 4l4 4-4 4"/>
+                          <path d="M21 16H6M10 12l-4 4 4 4"/>
+                        </svg>
+                      {%- when 'shield' -%}
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2l8 3v6c0 5-3.4 8.7-8 11-4.6-2.3-8-6-8-11V5l8-3z"/>
+                          <path d="M12 2v20c4.6-2.3 8-6 8-11V5l-8-3z" fill="#fff" opacity="0.18"/>
+                        </svg>
+                      {%- else -%}
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <circle cx="12" cy="12" r="9"/>
+                          <circle cx="12" cy="12" r="2.5" fill="currentColor" stroke="none"/>
+                        </svg>
+                    {%- endcase -%}
+                  {%- endif -%}
+                </span>
+                <span class="hero-muscles__feature-text">{{ block.settings.heading }}</span>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+    </div>
+
+    <div class="hero-muscles__media">
+      {%- if section.settings.image != blank -%}
+        {{ section.settings.image | image_url: width: 1600 | image_tag:
+          loading: 'lazy',
+          widths: '400,600,800,1000,1200,1600',
+          sizes: '(min-width: 990px) 50vw, 100vw',
+          class: 'hero-muscles__image',
+          alt: section.settings.image.alt
+        }}
+      {%- else -%}
+        {% comment %} Default image bundled with the theme so the section renders before it is configured. {% endcomment %}
+        <img
+          class="hero-muscles__image"
+          src="{{ 'image-1st-section.png' | asset_url }}"
+          alt=""
+          width="720"
+          height="720"
+          loading="lazy"
+        >
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero: Muscles",
+  "class": "section-hero-muscles",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Rating text",
+      "default": "Trusted by 1,000+ happy customers"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading (line 1)",
+      "default": "Wake Up The"
+    },
+    {
+      "type": "text",
+      "id": "heading_emphasis",
+      "label": "Heading (line 2, emphasis)",
+      "default": "Muscles That Matter."
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Suji delivers science-backed targeted compression — pain relief, muscle activation, and lasting strength in minutes, right from home.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button label",
+      "default": "Try Suji"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary button label",
+      "default": "How It Works"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee text",
+      "default": "30-day money back guarantee"
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent (botones, estrellas)",
+      "default": "#E10017"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color del heading",
+      "default": "#232223"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color de texto secundario",
+      "default": "#717171"
+    },
+    {
+      "type": "color",
+      "id": "note_color",
+      "label": "Color de nota/garantía",
+      "default": "#363636"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de fondo",
+      "default": "#F9F5F3"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon_style",
+          "label": "Ícono (si no subes uno propio)",
+          "options": [
+            { "value": "target", "label": "Target" },
+            { "value": "arrows", "label": "Arrows" },
+            { "value": "shield", "label": "Shield" }
+          ],
+          "default": "target"
+        },
+        {
+          "type": "select",
+          "id": "icon_preset",
+          "label": "Ícono preestablecido (anula el estilo de arriba)",
+          "options": [
+            { "value": "", "label": "Ninguno (usar estilo)" },
+            { "value": "circlepoint.png", "label": "Circle point" },
+            { "value": "compression-icon.svg.png", "label": "Compression" },
+            { "value": "support.png", "label": "Support" }
+          ],
+          "default": ""
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Ícono personalizado (opcional, anula todo lo anterior)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Feature text",
+          "default": "Activates Muscles & Builds Strength"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero: Muscles",
+      "blocks": [
+        { "type": "feature", "settings": { "icon_style": "target", "heading": "Activates Muscles & Builds Strength" } },
+        { "type": "feature", "settings": { "icon_style": "arrows", "heading": "Boosts Recovery & Circulation" } },
+        { "type": "feature", "settings": { "icon_style": "shield", "heading": "Supports Healthy Joints & Movement" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
